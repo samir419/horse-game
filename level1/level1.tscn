@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://mxle7jtm84oq"]
+
+[ext_resource type="Script" uid="uid://dkw3qpp27gtkw" path="res://level1/level_1.gd" id="1_lklfg"]
+[ext_resource type="Script" uid="uid://ctgp7eq2nf5tn" path="res://level1/control_hud.gd" id="2_jq2b3"]
+[ext_resource type="Script" uid="uid://cu1n1hrvbqwhe" path="res://level1/management.gd" id="3_ol5kc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0whw"]
+size = Vector3(20, 1, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lklfg"]
+size = Vector3(20, 1, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jq2b3"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lklfg"]
+
+[sub_resource type="Theme" id="Theme_jq2b3"]
+
+[node name="Level1" type="Node" unique_id=1373709843]
+script = ExtResource("1_lklfg")
+
+[node name="control_hud" type="Control" parent="." unique_id=1437363889]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_jq2b3")
+
+[node name="start" type="Button" parent="control_hud" unique_id=743332491]
+layout_mode = 0
+offset_left = 838.0
+offset_top = 451.0
+offset_right = 938.0
+offset_bottom = 526.0
+text = "start"
+
+[node name="restart" type="Button" parent="control_hud" unique_id=589573977]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 447.0
+offset_right = 1076.0
+offset_bottom = 522.0
+text = "restart"
+
+[node name="quit" type="Button" parent="control_hud" unique_id=868528586]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 544.0
+offset_right = 1076.0
+offset_bottom = 619.0
+text = "quit"
+
+[node name="race" type="Node3D" parent="." unique_id=2134773725]
+
+[node name="floor" type="StaticBody3D" parent="race" unique_id=1772910371]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="race/floor" unique_id=717701664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45)
+shape = SubResource("BoxShape3D_a0whw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="race/floor" unique_id=1653623065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45)
+mesh = SubResource("BoxMesh_lklfg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="race" unique_id=883967166]
+transform = Transform3D(1, 0, 0, 0, -0.018324943, 0.9998321, 0, -0.9998321, -0.018324943, 0, 16.393642, 0)
+
+[node name="Camera3D" type="Camera3D" parent="race" unique_id=1928082712]
+transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 5, 10)
+
+[node name="pillar" type="StaticBody3D" parent="race" unique_id=1776805139]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="race/pillar" unique_id=1946215276]
+transform = Transform3D(0.9999958, -0.0027671973, 0.00084070687, 0.0027676024, 0.99999607, -0.0004818811, -0.0008393724, 0.0004842019, 0.9999995, 8.281954, 1.5088401, -18.014174)
+mesh = SubResource("BoxMesh_jq2b3")
+
+[node name="management" type="Control" parent="." unique_id=2130145548]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_ol5kc")
+
+[node name="Control" type="Control" parent="management" unique_id=1331208814]
+material = SubResource("CanvasItemMaterial_lklfg")
+anchors_preset = 0
+offset_left = 66.0
+offset_top = 44.0
+offset_right = 427.0
+offset_bottom = 273.0
+theme = SubResource("Theme_jq2b3")
+
+[node name="Label" type="Label" parent="management/Control" unique_id=1419531662]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "horse data"
+
+[node name="stats" type="Label" parent="management/Control" unique_id=936164277]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 30.0
+offset_right = 94.0
+offset_bottom = 92.0
+
+[node name="start race" type="Button" parent="management" unique_id=492360526]
+layout_mode = 0
+offset_left = 822.0
+offset_top = 466.0
+offset_right = 922.0
+offset_bottom = 541.0
+text = "RACE"
+
+[node name="feed" type="Button" parent="management" unique_id=2085453888]
+layout_mode = 0
+offset_left = 613.0
+offset_top = 463.0
+offset_right = 713.0
+offset_bottom = 538.0
+text = "feed 10$"
+
+[node name="player_stats" type="Control" parent="management" unique_id=939477057]
+anchors_preset = 0
+offset_left = 607.0
+offset_top = 8.0
+offset_right = 807.0
+offset_bottom = 208.0
+
+[node name="Label" type="Label" parent="management/player_stats" unique_id=1486044005]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "player data"
+
+[node name="player_stat_list" type="Label" parent="management/player_stats" unique_id=956961752]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 27.0
+offset_right = 111.0
+offset_bottom = 94.0

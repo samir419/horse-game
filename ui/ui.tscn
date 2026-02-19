@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://3b0q0cjw7som"]
+
+[ext_resource type="Script" uid="uid://dpgqg1qyul4db" path="res://ui/ui.gd" id="1_nb4k0"]
+
+[node name="Ui" type="Control" unique_id=1272316727]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nb4k0")
+
+[node name="Label" type="Label" parent="." unique_id=1410583184]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "label"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="start_button" type="Button" parent="." unique_id=12568982]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 278.0
+offset_right = 600.0
+offset_bottom = 353.0
+text = "start"

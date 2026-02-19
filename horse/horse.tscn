@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://br1gir0aqmnif"]
+
+[ext_resource type="Script" uid="uid://c8rfwx1wbiycy" path="res://horse/horse.gd" id="1_nkpfo"]
+[ext_resource type="PackedScene" uid="uid://d01det8s81dki" path="res://horse/horse (1)/scene.gltf" id="2_udsfw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_udsfw"]
+size = Vector3(1, 1, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3w8wa"]
+size = Vector3(1, 1, 2)
+
+[node name="Horse" type="CharacterBody3D" unique_id=1716644941]
+script = ExtResource("1_nkpfo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1277084942]
+shape = SubResource("BoxShape3D_udsfw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1079503579]
+visible = false
+mesh = SubResource("BoxMesh_3w8wa")
+
+[node name="Sketchfab_Scene" parent="." unique_id=1249308086 instance=ExtResource("2_udsfw")]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0, -0.57340217, 0)
