@@ -2,16 +2,19 @@
 
 [ext_resource type="Script" uid="uid://dkw3qpp27gtkw" path="res://level1/level_1.gd" id="1_lklfg"]
 [ext_resource type="Script" uid="uid://ctgp7eq2nf5tn" path="res://level1/control_hud.gd" id="2_jq2b3"]
+[ext_resource type="Texture2D" uid="uid://by0u05cfjiesd" path="res://textures/grass.jpg" id="3_ctxqh"]
 [ext_resource type="Script" uid="uid://cu1n1hrvbqwhe" path="res://level1/management.gd" id="3_ol5kc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0whw"]
 size = Vector3(20, 1, 100)
 
-[sub_resource type="BoxMesh" id="BoxMesh_lklfg"]
-size = Vector3(20, 1, 100)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_871ru"]
+albedo_texture = ExtResource("3_ctxqh")
+uv1_scale = Vector3(5, 10, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_jq2b3"]
-size = Vector3(1, 2, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_lklfg"]
+material = SubResource("StandardMaterial3D_871ru")
+size = Vector3(20, 1, 100)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lklfg"]
 
@@ -69,12 +72,6 @@ transform = Transform3D(1, 0, 0, 0, -0.018324943, 0.9998321, 0, -0.9998321, -0.0
 
 [node name="Camera3D" type="Camera3D" parent="race" unique_id=1928082712]
 transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 5, 10)
-
-[node name="pillar" type="StaticBody3D" parent="race" unique_id=1776805139]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="race/pillar" unique_id=1946215276]
-transform = Transform3D(0.9999958, -0.0027671973, 0.00084070687, 0.0027676024, 0.99999607, -0.0004818811, -0.0008393724, 0.0004842019, 0.9999995, 8.281954, 1.5088401, -18.014174)
-mesh = SubResource("BoxMesh_jq2b3")
 
 [node name="management" type="Control" parent="." unique_id=2130145548]
 layout_mode = 3
