@@ -4,7 +4,6 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$start.pressed.connect(on_start)
-	$restart.pressed.connect(on_restart)
 	$quit.pressed.connect(on_quit)
 
 

@@ -39,20 +39,12 @@ offset_right = 938.0
 offset_bottom = 526.0
 text = "start"
 
-[node name="restart" type="Button" parent="control_hud" unique_id=589573977]
-layout_mode = 0
-offset_left = 976.0
-offset_top = 447.0
-offset_right = 1076.0
-offset_bottom = 522.0
-text = "restart"
-
 [node name="quit" type="Button" parent="control_hud" unique_id=868528586]
 layout_mode = 0
-offset_left = 976.0
-offset_top = 544.0
-offset_right = 1076.0
-offset_bottom = 619.0
+offset_left = 987.0
+offset_top = 453.0
+offset_right = 1087.0
+offset_bottom = 528.0
 text = "quit"
 
 [node name="race" type="Node3D" parent="." unique_id=2134773725]
@@ -102,14 +94,6 @@ offset_top = 30.0
 offset_right = 94.0
 offset_bottom = 92.0
 
-[node name="start race" type="Button" parent="management" unique_id=492360526]
-layout_mode = 0
-offset_left = 822.0
-offset_top = 466.0
-offset_right = 922.0
-offset_bottom = 541.0
-text = "RACE"
-
 [node name="feed" type="Button" parent="management" unique_id=2085453888]
 layout_mode = 0
 offset_left = 613.0
@@ -137,3 +121,35 @@ offset_left = 8.0
 offset_top = 27.0
 offset_right = 111.0
 offset_bottom = 94.0
+
+[node name="rank_1_race" type="Button" parent="management" unique_id=1345330312]
+layout_mode = 0
+offset_left = 589.0
+offset_top = 198.0
+offset_right = 689.0
+offset_bottom = 298.0
+text = "rank 1 race"
+
+[node name="rank_2_race" type="Button" parent="management" unique_id=1405228586]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 200.0
+offset_right = 806.0
+offset_bottom = 300.0
+text = "rank 2 race"
+
+[node name="rank_3_race" type="Button" parent="management" unique_id=382477533]
+layout_mode = 0
+offset_left = 833.0
+offset_top = 207.0
+offset_right = 933.0
+offset_bottom = 307.0
+text = "rank 3 race"
+
+[node name="train" type="Button" parent="management" unique_id=2065189194]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 466.0
+offset_right = 910.0
+offset_bottom = 541.0
+text = "speed trainning 30$"

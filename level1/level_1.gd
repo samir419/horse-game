@@ -43,7 +43,7 @@ func _ready() -> void:
 	game.visible=false
 	hud.visible=false
 
-func start_race():
+func start_race(data):
 	management.visible=false
 	game.visible=true
 	hud.visible=true
@@ -52,11 +52,11 @@ func start_race():
 	var total_width = (count - 1) * spacing
 	var start_x = -total_width / 2
 
-	for i in range(count):
+	for i in range(data.size()):
 		var horse = horse_scene.instantiate()
 		horse_list.append(horse)
 		add_child(horse)
-		horse.set_data(horses[i])
+		horse.set_data(data[i])
 
 		horse.position.y = 2
 		horse.position.z = 0
@@ -75,7 +75,7 @@ func restart():
 	for horse in horse_list:
 		horse.queue_free()
 	horse_list=[]
-	start_race()
+	#start_race()
 
 func quit_race():
 	for horse in horse_list:
@@ -104,6 +104,7 @@ func set_player_data(data):
 
 func handle_race_win():
 	player_data.money+=50
+	get_player_horse().stamina-=10
 	$management.update_data()
 			
 
