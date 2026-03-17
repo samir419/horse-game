@@ -26,10 +26,11 @@ func stop():
 	$gallop.stop()
 
 func whip():
-	speed+=1
+	speed+=0.1
 	
 var has_finished_race=false
 func _physics_process(delta: float) -> void:
+	$Control/Container/stamina.text = "speed: %s \nstamina: %s" % [speed, stamina]
 	if position.z < -90:
 		if has_finished_race == false:
 			stop()
