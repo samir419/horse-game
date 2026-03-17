@@ -9,7 +9,7 @@ var horses =[
 	},
 	{
 		'name':'horse2',
-		'owner':'player',
+		'owner':'cpu',
 		'stamina':20,
 		'energy':20,
 		'speed':5,
@@ -65,6 +65,7 @@ func start_race(data):
 		if horse.rider == "player":
 			main_horse = horse
 	race_state = 'running'
+	$crowd.play()
 
 func go():
 	print('go')
@@ -84,6 +85,7 @@ func quit_race():
 	management.visible=true
 	game.visible=false
 	hud.visible=false
+	$crowd.stop()
 
 func get_player_horse():
 	for i in range(3):
@@ -107,7 +109,8 @@ func handle_race_win():
 	get_player_horse().stamina-=10
 	$management.update_data()
 			
-
+func whip_horse():
+	main_horse.whip()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if race_state == 'wait':

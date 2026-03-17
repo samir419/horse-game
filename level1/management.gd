@@ -3,43 +3,38 @@ extends Control
 var horse_data
 var horses = []
 var player_data
+var selected = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$rank_1_race.pressed.connect(rank1)
-	$rank_2_race.pressed.connect(rank2)
-	$rank_3_race.pressed.connect(rank3)
-	$feed.pressed.connect(feed)
-	$train.pressed.connect(train)
+	var buttons = [
+		$rank_1_race,
+		$rank_2_race,
+		$rank_3_race
+	]
+	for i in range(buttons.size()):
+		buttons[i].pressed.connect(func(): set_num(i))
+	$start_race.pressed.connect(select_horse)
 	render_data()
 func _on_visibility_changed():
 	render_data()
 
 func render_data():
-	horse_data = get_parent().get_player_horse()
-	$Control/stats.text = "stamina: %s \n speed: %s" % [horse_data.stamina, horse_data.speed]
-	player_data = get_parent().get_player_data()
-	$player_stats/player_stat_list.text = "money: %s \nrank: %s" % [player_data.money, player_data.rank]
 	horses = get_parent().get_horses()
+	
 func update_data():
-	render_data()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
 	pass
-func rank1():
-	var horses = get_parent().get_horses()
-	var data = [horses[0]]
-	get_parent().start_race(data)
 
-func rank2():
+func set_num(i):
+	selected = i
+	
+func select_horse():
 	var horses = get_parent().get_horses()
-	var data = [horses[0],horses[1]]
-	get_parent().start_race(data)
-
-func rank3():
-	var horses = get_parent().get_horses()
-	var data = [horses[0],horses[1],horses[2]]
-	get_parent().start_race(data)
+	for i in range(horses.size()):
+		if i == selected:
+			horses[i].owner = "player"
+		else:
+			horses[i].owner = "cpu"
+	get_parent().start_race(horses)
 
 func feed():
 	if player_data.money>= 10:

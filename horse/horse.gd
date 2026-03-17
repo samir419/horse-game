@@ -18,10 +18,16 @@ func set_data(data):
 
 func gallop():
 	vel_z=-1
+	$gallop.play()
 func stop():
 	vel_x = 0
 	vel_y = 0
 	vel_z = 0
+	$gallop.stop()
+
+func whip():
+	speed+=1
+	
 var has_finished_race=false
 func _physics_process(delta: float) -> void:
 	if position.z < -90:

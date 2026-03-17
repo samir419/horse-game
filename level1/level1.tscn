@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ctgp7eq2nf5tn" path="res://level1/control_hud.gd" id="2_jq2b3"]
 [ext_resource type="Texture2D" uid="uid://by0u05cfjiesd" path="res://textures/grass.jpg" id="3_ctxqh"]
 [ext_resource type="Script" uid="uid://cu1n1hrvbqwhe" path="res://level1/management.gd" id="3_ol5kc"]
+[ext_resource type="AudioStream" uid="uid://6p8arrj3auub" path="res://sounds/crowd.mp3" id="5_871ru"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0whw"]
 size = Vector3(20, 1, 100)
@@ -24,7 +25,6 @@ size = Vector3(20, 1, 100)
 script = ExtResource("1_lklfg")
 
 [node name="control_hud" type="Control" parent="." unique_id=1437363889]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -47,6 +47,15 @@ offset_right = 1087.0
 offset_bottom = 528.0
 text = "quit"
 
+[node name="whip" type="Button" parent="control_hud" unique_id=657447425]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 237.0
+offset_right = 117.0
+offset_bottom = 337.0
+text = "whip
+"
+
 [node name="race" type="Node3D" parent="." unique_id=2134773725]
 
 [node name="floor" type="StaticBody3D" parent="race" unique_id=1772910371]
@@ -66,6 +75,7 @@ transform = Transform3D(1, 0, 0, 0, -0.018324943, 0.9998321, 0, -0.9998321, -0.0
 transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 5, 10)
 
 [node name="management" type="Control" parent="." unique_id=2130145548]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -85,7 +95,7 @@ theme = SubResource("Theme_jq2b3")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "horse data"
+text = "select horse"
 
 [node name="stats" type="Label" parent="management/Control" unique_id=936164277]
 layout_mode = 0
@@ -93,14 +103,6 @@ offset_left = 6.0
 offset_top = 30.0
 offset_right = 94.0
 offset_bottom = 92.0
-
-[node name="feed" type="Button" parent="management" unique_id=2085453888]
-layout_mode = 0
-offset_left = 613.0
-offset_top = 463.0
-offset_right = 713.0
-offset_bottom = 538.0
-text = "feed 10$"
 
 [node name="player_stats" type="Control" parent="management" unique_id=939477057]
 anchors_preset = 0
@@ -124,32 +126,36 @@ offset_bottom = 94.0
 
 [node name="rank_1_race" type="Button" parent="management" unique_id=1345330312]
 layout_mode = 0
-offset_left = 589.0
-offset_top = 198.0
-offset_right = 689.0
-offset_bottom = 298.0
-text = "rank 1 race"
+offset_left = 51.0
+offset_top = 93.0
+offset_right = 166.0
+offset_bottom = 193.0
+text = "select horse 1"
 
 [node name="rank_2_race" type="Button" parent="management" unique_id=1405228586]
 layout_mode = 0
-offset_left = 706.0
-offset_top = 200.0
-offset_right = 806.0
-offset_bottom = 300.0
-text = "rank 2 race"
+offset_left = 190.0
+offset_top = 95.0
+offset_right = 305.0
+offset_bottom = 195.0
+text = "select horse 2"
 
 [node name="rank_3_race" type="Button" parent="management" unique_id=382477533]
 layout_mode = 0
-offset_left = 833.0
-offset_top = 207.0
-offset_right = 933.0
-offset_bottom = 307.0
-text = "rank 3 race"
+offset_left = 334.0
+offset_top = 98.0
+offset_right = 449.0
+offset_bottom = 198.0
+text = "select horse 3"
 
-[node name="train" type="Button" parent="management" unique_id=2065189194]
+[node name="start_race" type="Button" parent="management" unique_id=1357089277]
 layout_mode = 0
-offset_left = 749.0
-offset_top = 466.0
-offset_right = 910.0
-offset_bottom = 541.0
-text = "speed trainning 30$"
+offset_left = 57.0
+offset_top = 245.0
+offset_right = 157.0
+offset_bottom = 345.0
+text = "start race"
+
+[node name="crowd" type="AudioStreamPlayer" parent="." unique_id=1363204969]
+stream = ExtResource("5_871ru")
+parameters/looping = true
